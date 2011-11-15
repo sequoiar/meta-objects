@@ -4,7 +4,7 @@
   "description": "Utilities and patterns for using Harmony Proxies to meta-program. Proxies as Proxy handlers, catch all forwarders for catch all forwarders, intercession introspection. Now you're thinking with portals.",
   "version": "0.0.1",
   "repository": {
-    "url": ""
+    "url": "https://github.com/Benvie/meta-objects"
   },
   "main": "./lib/index.js",
   "engines": {

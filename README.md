@@ -46,7 +46,7 @@ That's a lot of properties to implement. Proxies are something that calls for to
 
 This will likely change over time.
 
-### handlers
+### Handlers
 
 Handlers are objects which are used in Proxy.create[Function] and don't do anything on their own. Many of these handlers are proxies themselves, known as meta handlers. Due to how the Proxy API works, a meta handler will have all access funneled to one single get trap.
 
