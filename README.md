@@ -50,23 +50,23 @@ This will likely change over time.
 
 Handlers are objects which are used in Proxy.create[Function] and don't do anything on their own. Many of these handlers are proxies themselves, known as meta handlers. Due to how the Proxy API works, a meta handler will have all access funneled to one single get trap.
 
- * `Forwarding(target)` Sends actions to real object, most other things build on this
- * `Dispatching(dispatcher, defaultHandler, trapFilter)` Meta handler which funnels all access through one entry point. Accepts a default handler so action is optional.
- * `Membrane(dispatcher, defaultHandler, wrapper)` Meta handler designed to wrap any non-primitive objects that come under its purview, and unwrap objects as they leave.
+ * **`Forwarding(target)`** Sends actions to real object, most other things build on this
+ * **`Dispatching(dispatcher, defaultHandler, trapFilter)`** Meta handler which funnels all access through one entry point. Accepts a default handler so action is optional.
+ * **`Membrane(dispatcher, defaultHandler, wrapper)`** Meta handler designed to wrap any non-primitive objects that come under its purview, and unwrap objects as they leave.
 
 ### Proxies
 
 Proxy factories which handle most of the work for you and return created proxies.
 
- * `Mirror(target, dispatcher)` Mirror implements the Forwarding handler to create a proxy that will handle everything itself, but gives you first dibs to make your own changes.
- * `Membrane(dispatcher, target)` The most basic version of what the Membrane handler requires. A membrane proxy will wrap all properties and return values in membrane proxies. All wrapped objects from a membrane will report to the same dispatcher.
- * `Tracer(target)` Hacky experimentation in making a all-op tracer that doesn't break everything.
+ * **`Mirror(target, dispatcher)`** Mirror implements the Forwarding handler to create a proxy that will handle everything itself, but gives you first dibs to make your own changes.
+ * **`Membrane(dispatcher, target)`** The most basic version of what the Membrane handler requires. A membrane proxy will wrap all properties and return values in membrane proxies. All wrapped objects from a membrane will report to the same dispatcher.
+ * **`Tracer(target)`** Hacky experimentation in making a all-op tracer that doesn't break everything.
 
 ### Utilities
 
- * trapUtils
-   `nameArgs(trap, args)` Tags raw arguments and trap name and converts to named list.
-   `filterBy(by, value)` Filter trap list by a property name and match. Useful for retrieving trap filter lists.
-   `groupBy(by)` Create a reorganized trap list keyed on a property.
- * proxyUtils
-   `proxyFor(target, handler)` Single interface for creating object and function proxies. Only does the bare minimum, this requires a handler.
+ * __trapUtils__
+   **`nameArgs(trap, args)`** Tags raw arguments and trap name and converts to named list.
+   **`filterBy(by, value)`** Filter trap list by a property name and match. Useful for retrieving trap filter lists.
+   **`groupBy(by)`** Create a reorganized trap list keyed on a property.
+ * __proxyUtils__
+   **`proxyFor(target, handler)`** Single interface for creating object and function proxies. Only does the bare minimum, this requires a handler.
