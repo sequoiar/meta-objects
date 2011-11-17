@@ -62,7 +62,7 @@ Handlers are objects which are used in Proxy.create[Function] and don't do anyth
 Proxy factories which handle most of the work for you and return created proxies.
 
  * **Mirror(target, dispatcher)** Mirror implements the Forwarding  handler to create a proxy that will handle everything itself, but gives you first dibs to make your own changes.
- * **Membrane(dispatcher, target)** The most basic version of what the Membrane handler. A membrane proxy will wrap all properties and return values in membrane proxies. All wrapped objects from a membrane will report to the same dispatcher.
+ * **Membrane(dispatcher, target)** Basic implementation of membrane using membrane proxy. A membrane proxy will wrap all properties and return values in membrane proxies. All wrapped objects from a membrane will report to the same dispatcher.
  * **Tracer(target)** Hacky experimentation in making a all-op tracer that doesn't break everything.
 
 ### Utilities
