@@ -16,25 +16,28 @@ Externally the Proxy looks like a regular object, but in fact it is an amorphous
 
 JS will throw errors if it tries to use one of these and can't.
 
-    getOwnPropertyDescriptor: [name]             ->   descriptor
-    getPropertyDescriptor:    [name]             ->   descriptor
-    getOwnPropertyNames:      []                 ->   [ string ]
-    getPropertyNames:         []                 ->   [ string ]
-    defineProperty:           [name, descriptor] ->   any
-    delete:                   [name]             ->   boolean
-    fix:                      []                 ->   { static version }
+```javascript
+    getOwnPropertyDescriptor: [name]             =>  descriptor
+    getPropertyDescriptor:    [name]             =>  descriptor
+    getOwnPropertyNames:      []                 =>  [ string ]
+    getPropertyNames:         []                 =>  [ string ]
+    defineProperty:           [name, descriptor] =>  any
+    delete:                   [name]             =>  boolean
+    fix:                      []                 =>  { static version }
+```
 
 ### Derived Traps
 
 JS will use default fallbacks for these which rely on the fundamental traps.
 
-    has:       [name]                -> boolean    `name in proxy`
-    hasOwn:    [name]                -> boolean    `({}).hasOwnProperty.call(proxy, name)`
-    get:       [receiver, name]      -> any        `receiver.name`
-    set:       [receiver, name, val] -> boolean    `receiver.name = val`
-    enumerate: []                    -> [string]   `for (name in proxy)`
-    keys:      []                    -> [string]   `Object.keys(proxy)`
-
+```javascript
+    has:       [name]                => boolean    name in proxy
+    hasOwn:    [name]                => boolean    ({}).hasOwnProperty.call(proxy, name)
+    get:       [receiver, name]      => any        receiver.name
+    set:       [receiver, name, val] => boolean    receiver.name = val
+    enumerate: []                    => [string]   for (name in proxy)
+    keys:      []                    => [string]   Object.keys(proxy)
+```
 
 # Managable Patterns for making Proxies
 
